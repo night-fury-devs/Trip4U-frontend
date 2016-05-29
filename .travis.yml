@@ -5,5 +5,5 @@ env:
 install: npm install
 before_script:
  - npm install -g firebase-tools
-script: npm start
+script: npm run tsc
 after_script: firebase deploy --token "$TOKEN"
