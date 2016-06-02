@@ -1,5 +1,5 @@
-describe('angularjs homepage', function() {
-    it('should greet the named user', function() {
+describe('angularjs homepage', () => {
+    it('should greet the named user', () => {
         browser.get('http://www.angularjs.org');
 
         element(by.model('yourName')).sendKeys('Julie');
@@ -9,21 +9,21 @@ describe('angularjs homepage', function() {
         expect(greeting.getText()).toEqual('Hello Julie!');
     });
 
-    describe('todo list', function() {
+    describe('todo list', () => {
         var todoList;
 
-        beforeEach(function() {
+        beforeEach(() => {
             browser.get('http://www.angularjs.org');
 
             todoList = element.all(by.repeater('todo in todoList.todos'));
         });
 
-        it('should list todos', function() {
+        it('should list todos', () => {
             expect(todoList.count()).toEqual(2);
             expect(todoList.get(1).getText()).toEqual('build an angular app');
         });
 
-        it('should add a todo', function() {
+        it('should add a todo', () => {
             var addTodo = element(by.model('todoList.todoText'));
             var addButton = element(by.css('[value="add"]'));
 

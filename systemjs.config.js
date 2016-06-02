@@ -5,7 +5,7 @@
 (function(global) {
     // map tells the System loader where to look for things
     var map = {
-        'app':                        'app', // 'dist',
+        'app':                        'dist/app', // 'dist',
         '@angular':                   'node_modules/@angular',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs'
@@ -14,7 +14,7 @@
     var packages = {
         'app':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' },
-        'angular2-in-memory-web-api': { defaultExtension: 'js' },
+        'angular2-in-memory-web-api': { defaultExtension: 'js' }
     };
     var ngPackageNames = [
         'common',
@@ -25,7 +25,7 @@
         'platform-browser-dynamic',
         'router',
         'router-deprecated',
-        'upgrade',
+        'upgrade'
     ];
     // Add package entries for angular packages
     ngPackageNames.forEach(function(pkgName) {

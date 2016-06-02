@@ -3,7 +3,7 @@ exports.config = {
     directConnect: true,
     
     specs: [
-        'tests/e2e/*.spec.js', 'tests/e2e/*.spec.ts'
+        'tests/e2e/*.spec.ts'
     ],
 
     capabilities: {

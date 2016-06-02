@@ -1,7 +1,17 @@
 {
-  "ambientDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160317120654",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
-    "node": "registry:dt/node#4.0.0+20160509154515"
+  "globalDependencies": {
+    "angular-protractor": "registry:dt/angular-protractor#1.5.0+20160425143459",
+    "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
+    "core-js": "registry:dt/core-js#0.0.0+20160524134847",
+    "express": "registry:dt/express#4.0.0+20160317120654",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160602151406",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
+    "karma": "registry:dt/karma#0.13.9+20160501125529",
+    "karma-jasmine": "registry:dt/karma-jasmine#0.0.0+20160316155526",
+    "log4js": "registry:dt/log4js#0.0.0+20160316155526",
+    "mime": "registry:dt/mime#0.0.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160602155235",
+    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654",
+    "serve-static": "registry:dt/serve-static#0.0.0+20160501131543"
   }
 }
