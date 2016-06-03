@@ -1,12 +1,6 @@
 {
   "hosting": {
     "public": "../trip4u-frontend",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
     "ignore": [
       "typings/",
       "app/**/*.ts",
