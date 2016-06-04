@@ -1,37 +1,10 @@
-describe('angularjs homepage', () => {
-    it('should greet the named user', () => {
-        browser.get('http://www.angularjs.org');
-
-        element(by.model('yourName')).sendKeys('Julie');
-
-        var greeting = element(by.binding('yourName'));
-
-        expect(greeting.getText()).toEqual('Hello Julie!');
-    });
-
-    describe('todo list', () => {
-        var todoList;
-
-        beforeEach(() => {
-            browser.get('http://www.angularjs.org');
-
-            todoList = element.all(by.repeater('todo in todoList.todos'));
-        });
-
-        it('should list todos', () => {
-            expect(todoList.count()).toEqual(2);
-            expect(todoList.get(1).getText()).toEqual('build an angular app');
-        });
-
-        it('should add a todo', () => {
-            var addTodo = element(by.model('todoList.todoText'));
-            var addButton = element(by.css('[value="add"]'));
-
-            addTodo.sendKeys('write a protractor test');
-            addButton.click();
-
-            expect(todoList.count()).toEqual(3);
-            expect(todoList.get(2).getText()).toEqual('write a protractor test');
-        });
-    });
+describe('main page tests', () => {
+   it('should find Aloha:)', () => {
+       browser.get(browser.baseUrl);
+       browser.waitForAngular();
+       
+       var myapp = element(by.tagName('my-app'));
+       
+       expect(myapp.getInnerHtml()).toEqual('<h1>Aloha :)</h1>');
+   }) 
 });
