@@ -6,8 +6,7 @@
 
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import {LandingPageComponent} from "./landingpage.component";
-import {LoginComponent} from "./login.component";
+import {LandingPageComponent} from "./landingPage/landingpage.component";
 
 @Component({
     selector: 'my-app',
@@ -18,8 +17,7 @@ import {LoginComponent} from "./login.component";
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true},
-    {path: '/login', name: 'Login', component: <any>LoginComponent}
+    {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true}
 ])
 export class AppComponent {
     
