@@ -13,7 +13,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - node_modules/protractor/bin/webdriver-manager update
 - npm install -g firebase-tools
-script: npm start
+script: npm run build
 after_success: scripts/deploy.sh
 notifications:
   email: false

@@ -12,9 +12,9 @@
   },
   "files": [
     "app/app.component.ts",
-    "app/main.ts",
     "app/landingpage.component.ts",
     "app/login.component.ts",
+    "app/main.ts",
     "typings/index.d.ts"
   ]
 }
