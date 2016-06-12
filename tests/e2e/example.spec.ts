@@ -1,6 +1,6 @@
 describe('main page tests', () => {
    it('should find Aloha:)', () => {
-       browser.get(browser.baseUrl);
+       browser.get("/");
        browser.waitForAngular();
      
        var myapp = element(by.tagName('my-app'));

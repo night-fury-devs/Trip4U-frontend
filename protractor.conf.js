@@ -18,7 +18,6 @@ var config = {
 
 if (process.env.TRAVIS) {
     config.directConnect = false;
-    config.baseUrl = 'https://project-762377074824993679.firebaseapp.com/';
     config.sauceUser = process.env.SAUCE_USERNAME;
     config.sauceKey = process.env.SAUCE_ACCESS_KEY;
     config.capabilities = {
