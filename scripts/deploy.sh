@@ -2,7 +2,10 @@
 
 set -ev
 
-if [ $TRAVIS_BRANCH == "dev" ]
+if [ ${TRAVIS_BRANCH} == "dev" ]
 then
-    firebase deploy --token $TOKEN;
+    cd dist;
+    npm i --production;
+    cd ..;
+    firebase deploy --token ${TOKEN};
 fi

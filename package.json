@@ -2,13 +2,14 @@
   "name": "trip4u-frontend",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run postinstall && npm run compile && npm run test",
-    "lite": "lite-server",
+    "build": "npm run clean && npm run typings && npm run compile && npm run test",
+    "start": "npm run build && lite-server",
     "compile": "gulp",
-    "postinstall": "typings install",
+    "typings": "typings install",
     "test": "npm run unit && npm run e2e",
     "unit": "karma start karma.conf.js --single-run",
-    "e2e": "protractor protractor.conf.js"
+    "e2e": "protractor protractor.conf.js",
+    "clean": "gulp clean"
   },
   "license": "ISC",
   "dependencies": {
@@ -32,7 +33,9 @@
   },
   "devDependencies": {
     "concurrently": "2.0.0",
+    "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-tsconfig-files": "^0.4.0",
     "gulp-typescript": "^2.13.5",
     "gulp-uglify": "^1.5.3",
     "http-server": "^0.9.0",

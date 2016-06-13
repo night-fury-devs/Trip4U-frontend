@@ -1,12 +1,5 @@
 {
   "hosting": {
-    "public": "../trip4u-frontend",
-    "ignore": [
-      "typings/",
-      "app/**/*.ts",
-      "tests/",
-      "/*.json",
-      "/.*"
-    ]
+    "public": "dist"
   }
 }
