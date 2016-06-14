@@ -10,15 +10,12 @@ import {LandingPageComponent} from "./landingPage/landingpage.component";
 
 @Component({
     selector: 'my-app',
-    template: `
-        <h1>Aloha :)</h1>
-        <router-outlet></router-outlet>
-    `,
+    moduleId: module.id,
+    templateUrl: 'app.component.html',
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
     {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true}
 ])
 export class AppComponent {
-    
 }

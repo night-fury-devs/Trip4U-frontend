@@ -7,7 +7,7 @@ var ts = require('gulp-typescript');
 var tsProject = ts.createProject('tsconfig.json', {sortOutput: true});
 
 var paths = {
-    resources: ['**/*.html', '**/*.css', '!node_modules/**', 'systemjs.config.js', 'package.json'],
+    resources: ['**/*.html', '**/*.css', '!node_modules/**', 'systemjs.config.js', 'package.json', '**/*.jpg', '**/*.js'],
     sources: ['app/**/*.ts', 'typings/index.d.ts'],
     destination: 'dist'
 };
