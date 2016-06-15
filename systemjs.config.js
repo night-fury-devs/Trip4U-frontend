@@ -5,7 +5,11 @@
 (function(global) {
     // map tells the System loader where to look for things
     var map = {
-        'app':                        'app', // 'dist',
+        //uncomment this line for prod runs
+        // 'app':                        'app', // 'dist',
+        //uncomment this line for local runs
+        'app':                        'dist/app', // 'dist',
+        
         '@angular':                   'node_modules/@angular',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs'
@@ -34,6 +38,6 @@
     var config = {
         map: map,
         packages: packages
-    }
+    };
     System.config(config);
 })(this);
