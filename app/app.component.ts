@@ -6,7 +6,8 @@
 
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import {LandingPageComponent} from "./landingPage/landingpage.component";
+import { LandingPageComponent } from "./landingPage/landingpage.component";
+import { EmailConfirmPageComponent } from './email-confirm-page/email-confirm-page.component';
 
 @Component({
     selector: 'my-app',
@@ -15,7 +16,8 @@ import {LandingPageComponent} from "./landingPage/landingpage.component";
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true}
+    {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true},
+    {path: '/confirm', name: 'App', component: EmailConfirmPageComponent, useAsDefault: false}
 ])
 export class AppComponent {
 }

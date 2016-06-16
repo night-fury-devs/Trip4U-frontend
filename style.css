@@ -4,7 +4,7 @@ nav .brand-logo {
 }
 
 nav {
-    position: fixed;
+    /*position: fixed;*/
     z-index: 1000;
     margin-bottom: 40px;
 }
@@ -56,4 +56,9 @@ p {
 
 footer.page-footer {
     margin: 0;
+}
+
+.block-center-align {
+    margin-left: auto;
+    margin-right: auto;
 }
