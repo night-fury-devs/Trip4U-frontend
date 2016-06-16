@@ -16,8 +16,8 @@ import { EmailConfirmPageComponent } from './email-confirm-page/email-confirm-pa
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true},
-    {path: '/confirm', name: 'App', component: EmailConfirmPageComponent, useAsDefault: false}
+    {path: '/', name: 'App', component: LandingPageComponent, useAsDefault: true},
+    {path: '/confirm', name: 'EmailConfirmation', component: EmailConfirmPageComponent, useAsDefault: false}
 ])
 export class AppComponent {
 }
