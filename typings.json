@@ -1,6 +1,5 @@
 {
   "globalDependencies": {
-    "angular-protractor": "registry:dt/angular-protractor#1.5.0+20160425143459",
     "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
     "core-js": "registry:dt/core-js#0.0.0+20160524134847",
     "express": "registry:dt/express#4.0.0+20160317120654",
