@@ -9,6 +9,6 @@ import { ROUTER_PROVIDERS }  from '@angular/router-deprecated';
 
 import { AppComponent }      from './app.component';
 
-bootstrap(AppComponent, [
+bootstrap(<any>AppComponent, [
     ROUTER_PROVIDERS
 ]);

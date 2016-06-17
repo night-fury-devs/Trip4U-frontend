@@ -1,3 +1,7 @@
+.wrap {
+    padding-top: 64px;
+}
+
 nav ul a,
 nav .brand-logo {
     color: #444;
@@ -27,6 +31,10 @@ p {
     width: 100%;
 }
 
+.section {
+    padding-top: 20px;
+}
+
 @media only screen and (max-width : 992px) {
     .parallax-container .section {
         position: absolute;
@@ -35,10 +43,6 @@ p {
     #index-banner .section {
         top: 10%;
     }
-}
-
-#index-banner {
-    top: 40px;
 }
 
 @media only screen and (max-width : 600px) {
@@ -56,4 +60,9 @@ p {
 
 footer.page-footer {
     margin: 0;
+}
+
+.block-center-align {
+    margin-left: auto;
+    margin-right: auto;
 }
