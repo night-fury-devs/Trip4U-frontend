@@ -3,13 +3,13 @@
  * Date: 10 June 2016
  * Time: 10:57
  */
-/// <reference path="../../typings/globals/jquery/index.d.ts" />
-/// <reference path="../../typings/globals/materialize-css/index.d.ts" />
-import { Component } from '@angular/core';
+
+import {Component, Type} from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'landingpage.component.html'
+    templateUrl: 'landingpage.component.html',
+    selector: 'landing-page'
 })
 export class LandingPageComponent {
 
