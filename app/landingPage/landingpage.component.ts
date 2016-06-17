@@ -5,13 +5,11 @@
  */
 
 import {Component, Type} from '@angular/core';
-import {UpButtonComponent} from "../up-button/up-button.component";
 
 @Component({
     moduleId: module.id,
     templateUrl: 'landingpage.component.html',
-    selector: 'landing-page',
-    directives: [<Type>UpButtonComponent]
+    selector: 'landing-page'
 })
 export class LandingPageComponent {
 
