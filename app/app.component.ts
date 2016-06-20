@@ -17,8 +17,8 @@ import {UpButtonComponent} from "./up-button/up-button.component";
     directives: [ROUTER_DIRECTIVES, <Type>UpButtonComponent]
 })
 @RouteConfig([
-    {path: '/', name: 'App', component: <any>LandingPageComponent, useAsDefault: true},
-    {path: '/confirm', name: 'EmailConfirmPage', component: EmailConfirmPageComponent, useAsDefault: false}
+    {path: '/', name: 'App', component: <Type>LandingPageComponent, useAsDefault: true},
+    {path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent},
 ])
 export class AppComponent implements OnInit {
     ngOnInit() {

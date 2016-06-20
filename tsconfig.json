@@ -12,6 +12,7 @@
   },
   "files": [
     "app/app.component.ts",
+    "app/content-panel/content-panel.component.ts",
     "app/email-confirm-page/email-confirm-page.component.ts",
     "app/landingPage/landingpage.component.ts",
     "app/main.ts",
