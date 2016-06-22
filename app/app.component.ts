@@ -9,12 +9,13 @@ import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {LandingPageComponent} from "./landingPage/landingpage.component";
 import {EmailConfirmPageComponent} from './email-confirm-page/email-confirm-page.component';
 import {UpButtonComponent} from "./up-button/up-button.component";
+import {SideMenuComponent} from "./side-menu/side-menu.component";
 
 @Component({
     selector: 'my-app',
     moduleId: module.id,
     templateUrl: 'app.component.html',
-    directives: [ROUTER_DIRECTIVES, <Type>UpButtonComponent]
+    directives: [ROUTER_DIRECTIVES, <Type>UpButtonComponent, <Type>SideMenuComponent]
 })
 @RouteConfig([
     {path: '/', name: 'App', component: <Type>LandingPageComponent, useAsDefault: true},

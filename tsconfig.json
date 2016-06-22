@@ -16,6 +16,7 @@
     "app/email-confirm-page/email-confirm-page.component.ts",
     "app/landingPage/landingpage.component.ts",
     "app/main.ts",
+    "app/side-menu/side-menu.component.ts",
     "app/up-button/up-button.component.ts",
     "typings/index.d.ts"
   ]
