@@ -4,15 +4,21 @@
  * Time: 10:57
  */
 
-import {Component, OnInit} from '@angular/core';
+import {Component, Type, OnInit} from '@angular/core';
+import {ParallaxItemComponent} from "./parallax-item/parallax-item.component";
 
 @Component({
     moduleId: module.id,
     templateUrl: 'landingpage.component.html',
-    selector: 'landing-page'
+    selector: 'landing-page',
+    directives: [<Type>ParallaxItemComponent]
 })
 export class LandingPageComponent implements OnInit {
-    
+
+    constructor() {
+        this.initParallax();
+    }
+
     ngOnInit() {
         this.initParallax();
     }
@@ -22,5 +28,5 @@ export class LandingPageComponent implements OnInit {
             $('.parallax').parallax();
         });
     }
-    
+
 }
