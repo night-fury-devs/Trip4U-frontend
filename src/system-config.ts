@@ -7,10 +7,17 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+    '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
+    'jquery': 'vendor/jquery',
+    'materialize-css': 'vendor/materialize-css'
 };
 
 /** User packages configuration. */
 const packages: any = {
+    'app/pages': { main: 'index' },
+    '@angular/router-deprecated': { main: 'index' },
+    'jquery': { main: 'dist/core' },
+    'materialize-css': { main: 'dist/js/materialize' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
