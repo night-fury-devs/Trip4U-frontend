@@ -6,12 +6,13 @@
 
 import {Component, Type, OnInit} from '@angular/core';
 import {ParallaxItemComponent} from "./parallax-item/parallax-item.component";
+import {IntroPanelComponent} from "./intro-panel/intro-panel.component"
 
 @Component({
     moduleId: module.id,
     templateUrl: 'landingpage.component.html',
     selector: 'landing-page',
-    directives: [<Type>ParallaxItemComponent]
+    directives: [<Type>ParallaxItemComponent, <Type>IntroPanelComponent]
 })
 export class LandingPageComponent implements OnInit {
 
