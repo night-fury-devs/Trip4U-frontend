@@ -19,5 +19,7 @@ export class IntroPanelComponent{
     @Input() appName: string;
     @Input() imageCaption: string;
     @Input() image: string;
+    @Input() textContentCaption: string;
+    @Input() textContent: string;
 
 }

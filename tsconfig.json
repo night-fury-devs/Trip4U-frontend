@@ -15,11 +15,11 @@
     "app/content-panel/content-panel.component.ts",
     "app/email-confirm-page/email-confirm-page.component.ts",
     "app/landingPage/intro-panel/intro-panel.component.ts",
+    "app/landingPage/intro-panel/step-item/step-item.component.ts",
     "app/landingPage/landingpage.component.ts",
     "app/landingPage/parallax-item/parallax-item.component.ts",
     "app/main.ts",
     "app/up-button/up-button.component.ts",
-    "typings/index.d.ts",
-    "app/landingPage/intro-panel/step-item/step-item.component.ts"
+    "typings/index.d.ts"
   ]
 }
