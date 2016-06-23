@@ -1,10 +1,14 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
-import { AppComponent, environment } from './app/';
+/**
+ * Author: Mary Kuchumova
+ * Date: 25 May 2016
+ * Time: 23:17
+ */
 
-if (environment.production) {
-  enableProdMode();
-}
+import { bootstrap }         from '@angular/platform-browser-dynamic';
+import { ROUTER_PROVIDERS }  from '@angular/router-deprecated';
 
-bootstrap(AppComponent);
+import { AppComponent }      from './app/';
 
+bootstrap(<any>AppComponent, [
+  ROUTER_PROVIDERS
+]);
