@@ -12,10 +12,6 @@ import {Component, OnInit} from '@angular/core';
     selector: 'landing-page'
 })
 export class LandingPageComponent implements OnInit {
-
-    constructor() {
-        this.initParallax();
-    }
     
     ngOnInit() {
         this.initParallax();
