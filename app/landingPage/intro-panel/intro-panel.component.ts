@@ -4,12 +4,15 @@
  * Time: 17:10
  */
 
-import {Component, Input} from '@angular/core';
+import {Component, Type, Input} from '@angular/core';
+
+import {StepItemComponent} from "./step-item/step-item.component"
 
 @Component({
     moduleId: module.id,
     templateUrl: 'intro-panel.component.html',
-    selector: 'intro-panel'
+    selector: 'intro-panel',
+    directives: [<Type>StepItemComponent]
 })
 export class IntroPanelComponent{
 

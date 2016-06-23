@@ -19,6 +19,7 @@
     "app/landingPage/parallax-item/parallax-item.component.ts",
     "app/main.ts",
     "app/up-button/up-button.component.ts",
-    "typings/index.d.ts"
+    "typings/index.d.ts",
+    "app/landingPage/intro-panel/step-item/step-item.component.ts"
   ]
 }
