@@ -10,7 +10,7 @@ import {IntroPanelComponent} from "./intro-panel/intro-panel.component"
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'landingpage.component.html',
+    templateUrl: 'landing-page.component.html',
     selector: 'landing-page',
     directives: [<Type>ParallaxItemComponent, <Type>IntroPanelComponent]
 })
