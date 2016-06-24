@@ -8,16 +8,16 @@
 /** Map relative paths to URLs. */
 const map: any = {
     '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
-    'jquery': 'vendor/jquery',
-    'materialize-css': 'vendor/materialize-css'
+    'jquery': 'vendor/jquery/dist',
+    'materialize-css': 'vendor/materialize-css/dist/js'
 };
 
 /** User packages configuration. */
 const packages: any = {
     'app/pages': { main: 'index' },
     '@angular/router-deprecated': { main: 'index' },
-    'jquery': { main: 'dist/core' },
-    'materialize-css': { main: 'dist/js/materialize' }
+    'jquery': { main: 'jquery', format: 'cjs' },
+    'materialize-css': { main: 'materialize', format: 'cjs' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
