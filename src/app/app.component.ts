@@ -16,7 +16,8 @@ import {UpButtonComponent} from "./shared/";
   directives: [ROUTER_DIRECTIVES, <Type>UpButtonComponent]
 })
 @RouteConfig([
-  {path: '/', name: 'App', component: <Type>LandingPageComponent, useAsDefault: true},
+  {path: '/', name: 'App', redirectTo: ['Home']},
+  {path: '/home', name: 'Home', component: <Type>LandingPageComponent, useAsDefault: true},
   {path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent},
 ])
 export class AppComponent implements OnInit {
