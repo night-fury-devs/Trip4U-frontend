@@ -4,8 +4,6 @@ set -ev
 
 if [ ${TRAVIS_BRANCH} == "dev" ]
 then
-    cd dist;
-    npm i --production;
-    cd ..;
+    ng build -prod;
     firebase deploy --token ${TOKEN};
 fi
