@@ -3,22 +3,28 @@
     <div class="valign-wrapper">
       <div class="col s12 m8 block-center-align">
         <h3>Login:</h3>
-        <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+        <form>
           <div>
             <label for="userName">Login:</label>
             <input type="text" id="userName" name="userName"
-                   ngModel required/>
+                   [(ngModel)]="model.userName" required #userName="ngModel"/>
+            <div [hidden]="userName.valid || userName.pristine">
+              Login is required
+            </div>
           </div>
           <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"
-                   ngModel required/>
+                   [(ngModel)]="model.password" required #password="ngModel"/>
+            <div [hidden]="password.valid || password.pristine">
+              Password is required
+            </div>
           </div>
           <div>
             <input type="checkbox" id="rememberMe" name="rememberMe"
-                   ngModel checked> Remember me
+                   [(ngModel)]="model.rememberMe" checked> Remember me
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" (click)="logValue()">Login</button>
         </form>
       </div>
     </div>

@@ -15,9 +15,9 @@ import { LoggedInUser } from './model/LoggedInUser';
 })  
 export class LoginFormComponent {
 
-  model = new LoggedInUser('login', 'password', true);
+  public model = new LoggedInUser('login', 'password', true);
 
-  logForm(value: any) {
-    console.log(value);
+  logValue() {
+    console.log(this.model);
   }
 }
