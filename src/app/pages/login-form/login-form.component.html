@@ -3,7 +3,7 @@
     <div class="valign-wrapper">
       <div class="col s12 m8 block-center-align">
         <h3>Login:</h3>
-        <form>
+        <form #loginForm="ngForm" (ngSubmit)="performLogin()">
           <div>
             <label for="userName">Login:</label>
             <input type="text" id="userName" name="userName"
@@ -24,7 +24,7 @@
             <input type="checkbox" id="rememberMe" name="rememberMe"
                    [(ngModel)]="model.rememberMe" checked> Remember me
           </div>
-          <button type="submit" (click)="logValue()">Login</button>
+          <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
         </form>
       </div>
     </div>
