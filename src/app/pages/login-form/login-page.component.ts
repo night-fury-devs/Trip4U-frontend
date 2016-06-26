@@ -7,6 +7,9 @@
 
 
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/common';
+
+import { LoggedInUser } from './model/LoggedInUser';
 
 @Component({
   moduleId: module.id,
@@ -14,5 +17,8 @@ import { Component } from '@angular/core';
   selector: 'login-form'
 })  
 export class LoginFormComponent {
+
+  model = new LoggedInUser('login', 'password', true);
+
   
 }
