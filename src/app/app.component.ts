@@ -8,6 +8,7 @@ import {Component, Type, OnInit} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {LandingPageComponent, EmailConfirmPageComponent} from "./pages/";
 import {UpButtonComponent} from "./shared/";
+import {LoginFormComponent} from "./pages/login-form/login-page.component";
 
 @Component({
   selector: 'app',
@@ -19,6 +20,7 @@ import {UpButtonComponent} from "./shared/";
   {path: '/', name: 'App', redirectTo: ['Home']},
   {path: '/home', name: 'Home', component: <Type>LandingPageComponent, useAsDefault: true},
   {path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent},
+  {path: '/login', name: 'Login', component: <Type>LoginFormComponent}
 ])
 export class AppComponent implements OnInit {
   ngOnInit() {
