@@ -4,10 +4,7 @@
  * Time: 16:08
  */
 
-
-
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/common';
 
 import { LoggedInUser } from './model/LoggedInUser';
 
@@ -20,5 +17,7 @@ export class LoginFormComponent {
 
   model = new LoggedInUser('login', 'password', true);
 
-  
+  logForm(value: any) {
+    console.log(value);
+  }
 }

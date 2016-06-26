@@ -3,17 +3,20 @@
     <div class="valign-wrapper">
       <div class="col s12 m8 block-center-align">
         <h3>Login:</h3>
-        <form>
+        <form #form="ngForm" (ngSubmit)="logForm(form.value)">
           <div>
             <label for="userName">Login:</label>
-            <input type="text" id="userName" name="userName" required/>
+            <input type="text" id="userName" name="userName"
+                   ngModel required/>
           </div>
           <div>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required/>
+            <input type="password" id="password" name="password"
+                   ngModel required/>
           </div>
           <div>
-            <input type="checkbox" id="rememberMe" name="rememberMe" checked> Remember me
+            <input type="checkbox" id="rememberMe" name="rememberMe"
+                   ngModel checked> Remember me
           </div>
           <button type="submit">Login</button>
         </form>
