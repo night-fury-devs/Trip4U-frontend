@@ -4,7 +4,9 @@
  * Time: 14:00
  */
 
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { NgForm }    from '@angular/common';
+import { RegisteringUser } from "./model/registering-user";
 
 @Component({
   moduleId: module.id,
@@ -13,5 +15,6 @@ import {Component} from '@angular/core';
 })
 export class RegistrationFormComponent {
 
+  model = new RegisteringUser();
 
 }

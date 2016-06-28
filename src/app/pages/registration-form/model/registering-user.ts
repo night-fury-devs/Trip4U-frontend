@@ -9,7 +9,7 @@ export class RegisteringUser {
   public userName: string;
   public email: string;
   public password: string;
-  public confirmationPassword: string;
+  public confirmPassword: string;
   public firstName: string;
   public lastName: string;
   
