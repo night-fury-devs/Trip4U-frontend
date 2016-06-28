@@ -4,7 +4,7 @@
  * Time: 14:00
  */
 
-import {Component, Type} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   moduleId: module.id,

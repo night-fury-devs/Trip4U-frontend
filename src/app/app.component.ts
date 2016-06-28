@@ -6,8 +6,9 @@
 
 import {Component, Type, OnInit} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import {LandingPageComponent, EmailConfirmPageComponent, RegistrationFormComponent} from "./pages/";
+import {LandingPageComponent, EmailConfirmPageComponent} from "./pages/";
 import {UpButtonComponent} from "./shared/";
+import {RegistrationFormComponent} from "./pages/registration-form/registration-form.component";
 
 @Component({
   selector: 'app',
