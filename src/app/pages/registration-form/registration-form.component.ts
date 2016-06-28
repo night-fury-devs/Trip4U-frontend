@@ -6,6 +6,8 @@
 
 import { Component } from '@angular/core';
 import { NgForm }    from '@angular/common';
+import { Router } from '@angular/router-deprecated';
+
 import { RegisteringUser } from "./model/registering-user";
 
 @Component({
@@ -15,6 +17,13 @@ import { RegisteringUser } from "./model/registering-user";
 })
 export class RegistrationFormComponent {
 
+  constructor(private router: Router){}
+  
   model = new RegisteringUser();
+
+  registerUser(){
+    console.log(this.model);
+    this.router.navigate(['EmailConfirmPage'])
+  }
 
 }

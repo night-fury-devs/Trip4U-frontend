@@ -3,26 +3,38 @@
     <div class="valign-wrapper">
       <div class="col s12 m8 block-center-align">
         <h3>Registration:</h3>
-        <form>
+        <form #registrationForm="ngForm" (ngSubmit)="registerUser()">
           <div class="col s12">
             <label for="userName">Login:</label>
             <input type="text" id="userName" name="userName"
-                   [(ngModel)]="model.userName" required>
+                   [(ngModel)]="model.userName" required #userName="ngModel">
+            <div [hidden]="userName.valid || userName.pristine">
+              Login is required
+            </div>
           </div>
           <div class="col s12">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email"
-                   [(ngModel)]="model.email" required>
+                   [(ngModel)]="model.email" required #email="ngModel">
+            <div [hidden]="email.valid || email.pristine">
+              Email is required
+            </div>
           </div>
           <div class="col s12">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"
-                   [(ngModel)]="model.password" required>
+                   [(ngModel)]="model.password" required #password="ngModel">
+            <div [hidden]="password.valid || password.pristine">
+              Password is required
+            </div>
           </div>
           <div class="col s12">
             <label for="confirmPassword">Confirm password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword"
-                   [(ngModel)]="model.confirmPassword" required>
+                   [(ngModel)]="model.confirmPassword" required #confirmPassword="ngModel">
+            <div [hidden]="confirmPassword.valid || confirmPassword.pristine">
+              Confirm your password
+            </div>
           </div>
           <div class="col s12 m6">
             <label for="firstName">First name:</label>
@@ -32,9 +44,9 @@
           <div class="col s12 m6">
             <label for="lastName">Last name:</label>
             <input type="text" id="lastName" name="lastName"
-                   [(ngModel)]="lastName">
+                   [(ngModel)]="model.lastName">
           </div>
-          <button class="waves-effect waves-light btn" type="submit">Register</button>
+          <button class="waves-effect waves-light btn" type="submit" [disabled]="!registrationForm.form.valid">Register</button>
         </form>
       </div>
     </div>
