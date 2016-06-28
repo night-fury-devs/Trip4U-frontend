@@ -7,9 +7,8 @@
 
 export class LoggedInUser {
 
-  constructor(
-    userName: string,
-    password: string,
-    rememberMe: boolean
-  ){}
+  private userName: string;
+  private password: string;
+  private rememberMe: boolean;
+  
 }

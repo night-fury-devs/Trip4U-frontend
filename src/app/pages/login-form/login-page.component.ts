@@ -15,7 +15,7 @@ import { LoggedInUser } from './model/LoggedInUser';
 })  
 export class LoginFormComponent {
 
-  public model = new LoggedInUser('login', 'password', true);
+  model = new LoggedInUser();
 
   performLogin() {
     //TODO: add login logic and ajax request here

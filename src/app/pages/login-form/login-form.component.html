@@ -21,10 +21,12 @@
             </div>
           </div>
           <div>
-            <input type="checkbox" id="rememberMe" name="rememberMe"
-                   [(ngModel)]="model.rememberMe" checked> Remember me
+            <input type="checkbox" class="filled-in" id="rememberMe" name="rememberMe"
+                   [(ngModel)]="model.rememberMe" checked>
+            <label for="rememberMe">Remember me</label>
           </div>
-          <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+          <button class="waves-effect waves-light btn" type="submit"
+                  [disabled]="!loginForm.form.valid">Login</button>
         </form>
       </div>
     </div>
