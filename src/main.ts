@@ -7,10 +7,13 @@
 import { bootstrap }         from '@angular/platform-browser-dynamic';
 import { ROUTER_PROVIDERS }  from '@angular/router-deprecated';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { provideForms, disableDeprecatedForms } from '@angular/forms';
 
-import { AppComponent }      from './app/';
+import { AppComponent }      from './app/app.component';
 
 bootstrap(<any>AppComponent, [
   ROUTER_PROVIDERS,
-  { provide: LocationStrategy, useClass: HashLocationStrategy }
+  { provide: LocationStrategy, useClass: HashLocationStrategy },
+  disableDeprecatedForms(),
+  provideForms()
 ]);
