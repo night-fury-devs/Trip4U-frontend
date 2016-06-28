@@ -13,24 +13,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="vendor/materialize-css/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="vendor/materialize-css/dist/css/materialize.min.css" type="text/css" rel="stylesheet"
+        media="screen,projection"/>
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <app>Loading...</app>
+<app>Loading...</app>
 
-  
 
-    {{#each scripts.polyfills}}
-    <script src="{{.}}"></script>
-    {{/each}}
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
+{{#each scripts.polyfills}}
+<script src="{{.}}"></script>
+{{/each}}
+<script>
+  System.import('system-config.js').then(function () {
+    System.import('main');
+  }).catch(console.error.bind(console));
+</script>
 
-  
 
 </body>
 </html>

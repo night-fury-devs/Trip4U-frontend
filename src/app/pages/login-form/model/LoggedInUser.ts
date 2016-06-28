@@ -10,5 +10,5 @@ export class LoggedInUser {
   private userName: string;
   private password: string;
   private rememberMe: boolean;
-  
+
 }

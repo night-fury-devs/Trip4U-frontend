@@ -7,13 +7,19 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-    '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
+  '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
+  '@angular/forms': 'vendor/@angular/forms',
+  'jquery': 'vendor/jquery',
+  'materialize-css': 'vendor/materialize-css'
 };
 
 /** User packages configuration. */
 const packages: any = {
-    'app/pages': { main: 'index' },
-    '@angular/router-deprecated': { main: 'index' },
+  'app/pages': { main: 'index' },
+  '@angular/router-deprecated': { main: 'index' },
+  '@angular/forms': { main: 'index' },
+  'jquery': { main: 'dist/jquery.min.js', format: 'cjs', defaultExtension: 'js' },
+  'materialize-css': { main: 'dist/js/materialize.min.js', format: 'global', defaultExtension: 'js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +31,6 @@ const barrels: string[] = [
   '@angular/core',
   '@angular/common',
   '@angular/compiler',
-  '@angular/forms',
   '@angular/http',
   '@angular/router',
   '@angular/platform-browser',

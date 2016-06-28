@@ -5,20 +5,20 @@
  */
 
 
-import {Component, Input} from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-    moduleId: module.id,
-    templateUrl: 'parallax-item.component.html',
-    selector: 'parallax-item'
+  moduleId: module.id,
+  templateUrl: 'parallax-item.component.html',
+  selector: 'parallax-item'
 })
-export class ParallaxItemComponent{
+export class ParallaxItemComponent {
 
-    @Input() text: string;
-    @Input() imageCaption: string;
-    @Input() image: string;
-    @Input() caption: string;
-    @Input() icon: string;
+  @Input() text: string;
+  @Input() imageCaption: string;
+  @Input() image: string;
+  @Input() caption: string;
+  @Input() icon: string;
 
 }
 
