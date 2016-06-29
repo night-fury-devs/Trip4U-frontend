@@ -18,31 +18,33 @@ export class AuthenticationService {
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+  }
 
-  login(user: LoggedInUser): Observable<boolean> {
+  login(user: LoggedInUser) {
     let requestObject = {
       username: user.userName,
       password: user.password
     };
 
-    return this.http.post(this.loginUrl, user)
-                    .map(AuthenticationService.extractData)
-                    .map(AuthenticationService.storeToken)
+    this.http.post(this.loginUrl, user)
+        .map(AuthenticationService.extractData)
+        .map(AuthenticationService.storeToken)
   }
 
   confirm(id: string): Observable<boolean> {
     return this.http.post(this.confirmUrl, { id: id })
-                    .map(AuthenticationService.extractData)
+               .map(AuthenticationService.extractData)
   }
-  
+
   private static extractData(response: Response) {
     let body = response.json();
-    return body.data || { };
+    return body.data || {};
   }
-  
+
   private static storeToken(response: TokenResponse) {
     sessionStorage.setItem('token', response.token);
+    location.go('/home');
     return new Observable<boolean>(true);
   }
 }

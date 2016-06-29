@@ -6,6 +6,7 @@
 
 import { Component } from "@angular/core";
 import { LoggedInUser } from "./model/LoggedInUser";
+import { AuthenticationService } from "../../services/authentication/authentication.service";
 
 @Component({
   moduleId: module.id,
@@ -15,9 +16,13 @@ import { LoggedInUser } from "./model/LoggedInUser";
 export class LoginFormComponent {
 
   model = new LoggedInUser();
+  
+  constructor(private auth: AuthenticationService) {
+    
+  }
 
   performLogin() {
-    //TODO: add login logic and ajax request here
+    this.auth.login(this.model);
     console.log(this.model);
   }
 }
