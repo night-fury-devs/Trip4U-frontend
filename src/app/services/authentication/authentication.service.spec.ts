@@ -6,5 +6,8 @@
 
 describe('AuthenticationService tests', () => {
 
-  it("should call login function")
+  it("should call login function", () =>  {
+    expect(true).toBe(false)
+  });
+  
 });
