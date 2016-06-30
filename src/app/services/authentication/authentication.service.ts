@@ -5,11 +5,10 @@
  */
 
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Http, Response, URLSearchParams, Headers } from "@angular/http";
 import { Router } from "@angular/router-deprecated";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
-
 import { LoggedInUser } from "../../pages";
 import { TokenResponse } from "./token-response.model";
 
@@ -17,7 +16,7 @@ import { TokenResponse } from "./token-response.model";
 @Injectable()
 export class AuthenticationService {
 
-  private loginUrl = 'auth/login';
+  private loginUrl = 'http://localhost:8080/auth/login';
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
 
@@ -27,14 +26,18 @@ export class AuthenticationService {
   }
 
   login(user: LoggedInUser) {
-    let requestObject = {
-      username: user.userName,
-      password: user.password
-    };
+    let params = new URLSearchParams();
+    let headers = new Headers();
 
-    this.http.post(this.loginUrl, user)
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    params.append('username', user.userName);
+    params.append('password', user.password);
+
+    this.http.post(this.loginUrl, params, headers)
         .map(AuthenticationService.extractData)
         .map(this.storeToken)
+        .subscribe((result) => {console.log(result)})
   }
 
   confirm(id: string): Observable<boolean> {
@@ -44,10 +47,11 @@ export class AuthenticationService {
 
   private static extractData(response: Response) {
     let body = response.json();
-    return body.data || {};
+    return body || {}
   }
 
   private storeToken(response: TokenResponse) {
+    console.log('Token: ' + response.token);
     sessionStorage.setItem('token', response.token);
     this.router.navigateByUrl('/home');
   }
