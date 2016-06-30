@@ -6,10 +6,13 @@
 
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { Router } from "@angular/router-deprecated";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
+
 import { LoggedInUser } from "../../pages";
 import { TokenResponse } from "./token-response.model";
+
 
 @Injectable()
 export class AuthenticationService {
@@ -18,7 +21,9 @@ export class AuthenticationService {
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
 
-  constructor(private http: Http) {
+  constructor(
+    private http: Http,
+    private router: Router) {
   }
 
   login(user: LoggedInUser) {
@@ -29,7 +34,7 @@ export class AuthenticationService {
 
     this.http.post(this.loginUrl, user)
         .map(AuthenticationService.extractData)
-        .map(AuthenticationService.storeToken)
+        .map(this.storeToken)
   }
 
   confirm(id: string): Observable<boolean> {
@@ -42,9 +47,8 @@ export class AuthenticationService {
     return body.data || {};
   }
 
-  private static storeToken(response: TokenResponse) {
+  private storeToken(response: TokenResponse) {
     sessionStorage.setItem('token', response.token);
-    location.go('/home');
-    return new Observable<boolean>(true);
+    this.router.navigateByUrl('/home');
   }
 }
