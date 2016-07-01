@@ -16,6 +16,6 @@ bootstrap(<any>AppComponent, [
   { provide: LocationStrategy, useClass: HashLocationStrategy },
   disableDeprecatedForms(),
   provideForms(),
-  AuthenticationService,
-  HTTP_PROVIDERS
+  HTTP_PROVIDERS,
+  AuthenticationService
 ]);

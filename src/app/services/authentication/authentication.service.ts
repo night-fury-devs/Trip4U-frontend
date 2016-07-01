@@ -37,7 +37,7 @@ export class AuthenticationService {
     this.http.post(this.loginUrl, params, headers)
         .map(AuthenticationService.extractData)
         .map(this.storeToken)
-        .subscribe((result) => {console.log(result)})
+        .subscribe(() => console.log('')/*this.router.navigate(['Home'])*/)
   }
 
   confirm(id: string): Observable<boolean> {
@@ -51,8 +51,6 @@ export class AuthenticationService {
   }
 
   private storeToken(response: TokenResponse) {
-    console.log('Token: ' + response.token);
     sessionStorage.setItem('token', response.token);
-    this.router.navigateByUrl('/home');
   }
 }
