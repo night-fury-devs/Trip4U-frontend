@@ -7,8 +7,8 @@
 
 export class LoggedInUser {
 
-  private userName: string;
-  private password: string;
-  private rememberMe: boolean;
+  userName: string;
+  password: string;
+  rememberMe: boolean;
 
 }
