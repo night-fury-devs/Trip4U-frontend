@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="valign-wrapper">
+      <div class="col s12 m8 block-center-align">
+        <h3>Login:</h3>
+        <form #loginForm="ngForm" (ngSubmit)="performLogin()">
+          <div>
+            <label for="userName">Login:</label>
+            <input type="text" id="userName" name="userName"
+                   [(ngModel)]="model.userName" required #userName="ngModel"
+                   [class.error]="!password.valid && !password.pristine"/>
+            <div class="error-text" [hidden]="userName.valid || userName.pristine">
+              Login is required
+            </div>
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"
+                   [(ngModel)]="model.password" required #password="ngModel"
+                   [class.error]="!password.valid && !password.pristine"/>
+            <div class="error-text" [hidden]="password.valid || password.pristine">
+              Password is required
+            </div>
+          </div>
+          <div>
+            <input type="checkbox" class="filled-in" id="rememberMe" name="rememberMe"
+                   [(ngModel)]="model.rememberMe" checked>
+            <label for="rememberMe">Remember me</label>
+          </div>
+          <button class="waves-effect waves-light btn" type="submit"
+                  [disabled]="!loginForm.form.valid">Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

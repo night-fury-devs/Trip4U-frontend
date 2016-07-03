@@ -4,14 +4,14 @@
  * Time: 19:58
  */
 
-import { Component } from '@angular/core'
-    
+import { Component } from "@angular/core";
+
 @Component({
-    moduleId: module.id,
-    selector: 'content-panel',
-    templateUrl: 'content-panel.component.html',
-    styleUrls: ['content-panel.component.css']
+  moduleId: module.id,
+  selector: 'content-panel',
+  templateUrl: 'content-panel.component.html',
+  styleUrls: ['content-panel.component.css']
 })
 export class ContentPanelComponent {
-    
+
 }

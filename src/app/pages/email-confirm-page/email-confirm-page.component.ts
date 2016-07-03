@@ -4,13 +4,13 @@
  * Time: 12:02
  */
 
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    moduleId: module.id,
-    templateUrl: 'email-confirm-page.component.html',
-    selector: 'email-confirmation-page'
+  moduleId: module.id,
+  templateUrl: 'email-confirm-page.component.html',
+  selector: 'email-confirmation-page'
 })
 export class EmailConfirmPageComponent {
-    
+
 }

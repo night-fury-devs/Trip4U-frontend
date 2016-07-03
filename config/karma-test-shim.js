@@ -19,22 +19,22 @@ function isSpecFile(path) {
 }
 
 function isAppFile(path) {
-  return isJsFile(path) && appPaths.some(function(appPath) {
-    var fullAppPath = distPath + appPath + '/';
-    return path.substr(0, fullAppPath.length) == fullAppPath;
-  });
+  return isJsFile(path) && appPaths.some(function (appPath) {
+                            var fullAppPath = distPath + appPath + '/';
+                            return path.substr(0, fullAppPath.length) == fullAppPath;
+                          });
 }
 
 var allSpecFiles = Object.keys(window.__karma__.files)
-  .filter(isSpecFile)
-  .filter(isAppFile);
+                        .filter(isSpecFile)
+                        .filter(isAppFile);
 
 // Load our SystemJS configuration.
 System.config({
-  baseURL: distPath
+  baseURL : distPath
 });
 
-System.import('system-config.js').then(function() {
+System.import('system-config.js').then(function () {
   // Load and configure the TestComponentBuilder.
   return Promise.all([
     System.import('@angular/core/testing'),
@@ -44,13 +44,13 @@ System.import('system-config.js').then(function() {
     var testingBrowser = providers[1];
 
     testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-      testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+                            testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
   });
-}).then(function() {
+}).then(function () {
   // Finally, load all spec files.
   // This will run the tests directly.
   return Promise.all(
-    allSpecFiles.map(function (moduleName) {
-      return System.import(moduleName);
-    }));
+                          allSpecFiles.map(function (moduleName) {
+                            return System.import(moduleName);
+                          }));
 }).then(__karma__.start, __karma__.error);

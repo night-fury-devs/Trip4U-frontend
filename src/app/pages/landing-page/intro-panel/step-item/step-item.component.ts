@@ -4,17 +4,17 @@
  * Time: 17:26
  */
 
-import {Component, Input} from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-    moduleId: module.id,
-    templateUrl: 'step-item.component.html',
-    selector: 'step-item'
+  moduleId: module.id,
+  templateUrl: 'step-item.component.html',
+  selector: 'step-item'
 })
-export class StepItemComponent{
+export class StepItemComponent {
 
-    @Input() icon: string;
-    @Input() caption: string;
-    @Input() text: string;
+  @Input() icon: string;
+  @Input() caption: string;
+  @Input() text: string;
 
 }

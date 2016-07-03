@@ -3,11 +3,11 @@
 
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   return {
-    environment: environment,
-    baseURL: '/',
-    locationType: 'auto'
+    environment : environment,
+    baseURL : '/',
+    locationType : 'auto'
   };
 };
 
