@@ -9,6 +9,7 @@ import { NgForm }    from '@angular/common';
 import { Router } from '@angular/router-deprecated';
 
 import { RegisteringUser } from "./model/registering-user";
+import { AuthenticationService } from "../../services/authentication/authentication.service";
 
 @Component({
   moduleId: module.id,
@@ -17,13 +18,21 @@ import { RegisteringUser } from "./model/registering-user";
 })
 export class RegistrationFormComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router,
+              private auth: AuthenticationService){}
   
   model = new RegisteringUser();
 
   registerUser(){
-    console.log(this.model);
-    this.router.navigate(['EmailConfirmPage'])
+    this.auth.register(this.model)
+      .subscribe(
+        user => {
+          this.router.navigate(['EmailConfirmPage'])
+        },
+        error => {
+          this.error = <any>error
+        }
+      )
   }
 
 }

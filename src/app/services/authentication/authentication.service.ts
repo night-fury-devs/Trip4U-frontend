@@ -9,14 +9,15 @@ import { Http, Response, URLSearchParams, Headers } from "@angular/http";
 import { Router } from "@angular/router-deprecated";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
-import { LoggedInUser } from "../../pages";
+import { LoggedInUser, RegisteringUser } from "../../pages";
 import { TokenResponse } from "./token-response.model";
 
 
 @Injectable()
 export class AuthenticationService {
 
-  private loginUrl = 'http://localhost:8080/auth/login';
+  private host = 'http://localhost:8080/';
+  private loginUrl = 'auth/login';
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
 
@@ -34,10 +35,15 @@ export class AuthenticationService {
     params.append('username', user.userName);
     params.append('password', user.password);
 
-    this.http.post(this.loginUrl, params, headers)
+    this.http.post(this.host + this.loginUrl, params, headers)
         .map(AuthenticationService.extractData)
         .map(this.storeToken)
         .subscribe(() => console.log('')/*this.router.navigate(['Home'])*/)
+  }
+  
+  register(user: RegisteringUser) {
+    
+    
   }
 
   confirm(id: string): Observable<boolean> {
