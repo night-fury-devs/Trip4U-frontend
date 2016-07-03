@@ -16,13 +16,15 @@ import { AuthenticationService } from "../../services/authentication/authenticat
 export class LoginFormComponent {
 
   model = new LoggedInUser();
+  private successful: Boolean = true;
   
   constructor(private auth: AuthenticationService) {
     
   }
 
   performLogin() {
-    this.auth.login(this.model);
-    console.log(this.model);
+    this.auth.login(this.model)
+        .subscribe(res => console.log(res)/*TODO: make redirect to /home*/,
+                   err => this.successful = false);
   }
 }

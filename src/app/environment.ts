@@ -3,5 +3,6 @@
 // The build system defaults to the dev environment
 
 export const environment = {
-  production: false
+  production: false,
+  backend_host: 'http://localhost:8080/'
 };

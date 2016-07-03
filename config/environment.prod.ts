@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backend_host: 'https://trip4u.herokuapp.com/'
 };
