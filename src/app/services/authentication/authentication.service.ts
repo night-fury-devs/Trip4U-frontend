@@ -5,23 +5,22 @@
  */
 
 import { Injectable } from "@angular/core";
-import { Http, Response, URLSearchParams, Headers } from "@angular/http";
+import { URLSearchParams, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
-import { environment } from "../../environment";
 import { LoggedInUser } from "../../pages";
 import { TokenResponse } from "./token-response.model";
+import { XHttp } from "../xhttp/xhhtp.service";
 
 
 @Injectable()
 export class AuthenticationService {
 
-  private loginUrl = environment.backend_host + 'auth/login';
-  private registerUrl = environment.backend_host + 'auth/register';
-  private confirmUrl = environment.backend_host + 'auth/confirm';
+  private loginUrl = 'auth/login';
+  private registerUrl = 'auth/register';
+  private confirmUrl = 'auth/confirm';
 
-  constructor(
-    private http: Http) {
+  constructor(private xhttp: XHttp) {
   }
 
   login(user: LoggedInUser): Observable<any> {
@@ -33,24 +32,22 @@ export class AuthenticationService {
     params.append('username', user.userName);
     params.append('password', user.password);
 
-    return this.http.post(this.loginUrl, params, headers)
-        .map(AuthenticationService.extractData)
-        .map(this.storeToken)
-        .catch((err) => {
-          console.error(err);
-          return Observable.throw(err);
-        })
+    return this.xhttp.post(this.loginUrl, params, headers)
+               .map(XHttp.extract)
+               .map(this.storeToken)
+               .catch((err) => {
+                 console.error(err);
+                 return Observable.throw(err);
+               })
   }
 
   confirm(id: string): Observable<boolean> {
-    return this.http.post(this.confirmUrl, { id: id })
-               .map(AuthenticationService.extractData)
-  }
-
-  private static extractData(response: Response) {
-    let body = response.json();
-    console.log(body);
-    return body || {}
+    return this.xhttp.post(this.confirmUrl, { id: id })
+               .map(XHttp.extract)
+               .catch(err => {
+                 console.error(err);
+                 return Observable.throw(err)
+               })
   }
 
   private storeToken(response: TokenResponse) {

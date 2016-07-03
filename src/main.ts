@@ -8,8 +8,9 @@ import { bootstrap } from "@angular/platform-browser-dynamic";
 import { ROUTER_PROVIDERS } from "@angular/router-deprecated";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { disableDeprecatedForms, provideForms } from "@angular/forms";
-import { HTTP_PROVIDERS } from "@angular/http";
+import { HTTP_PROVIDERS, ConnectionBackend } from "@angular/http";
 import { AppComponent, AuthenticationService } from "./app/";
+import { XHttp } from "./app/services/xhttp/xhhtp.service";
 
 bootstrap(<any>AppComponent, [
   ROUTER_PROVIDERS,
@@ -17,5 +18,7 @@ bootstrap(<any>AppComponent, [
   disableDeprecatedForms(),
   provideForms(),
   HTTP_PROVIDERS,
+  ConnectionBackend,
+  XHttp,
   AuthenticationService
 ]);
