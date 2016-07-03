@@ -6,4 +6,4 @@ export * from './landing-page/parallax-item/parallax-item.component';
 export * from './login-form/model/LoggedInUser';
 export * from './login-form/login-page.component';
 export * from './registration-form/registration-form.component';
-export * from './registration-form/model/registering-user.ts';
+export * from './registration-form/model/registering-user';

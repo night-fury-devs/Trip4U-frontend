@@ -22,8 +22,7 @@ export class AuthenticationService {
   private confirmUrl = 'auth/confirm';
 
   constructor(
-    private http: Http,
-    private router: Router) {
+    private http: Http) {
   }
 
   login(user: LoggedInUser) {
@@ -41,9 +40,10 @@ export class AuthenticationService {
         .subscribe(() => console.log('')/*this.router.navigate(['Home'])*/)
   }
   
-  register(user: RegisteringUser) {
-    
-    
+  register(registeringUser: RegisteringUser) {
+    return this.http.post(this.host + this.registerUrl, registeringUser)
+        .map(AuthenticationService.extractData)
+        .catch(AuthenticationService.handleError)
   }
 
   confirm(id: string): Observable<boolean> {
@@ -58,5 +58,12 @@ export class AuthenticationService {
 
   private storeToken(response: TokenResponse) {
     sessionStorage.setItem('token', response.token);
+  }
+
+  private static handleError (error: any) {
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 }
