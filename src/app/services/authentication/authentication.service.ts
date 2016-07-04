@@ -5,7 +5,7 @@
  */
 
 import { Injectable } from "@angular/core";
-import { URLSearchParams, Headers } from "@angular/http";
+import { URLSearchParams, Headers, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
 import { LoggedInUser, RegisteringUser } from "../../pages";
@@ -35,14 +35,11 @@ export class AuthenticationService {
     return this.xhttp.post(this.loginUrl, params, headers)
                .map(XHttp.extract)
                .map(this.storeToken)
-               .catch((err) => {
-                 console.error(err);
-                 return Observable.throw(err);
-               })
+               .catch(AuthenticationService.handleError)
   }
   
   register(registeringUser: RegisteringUser) {
-    return this.http.post(this.registerUrl, registeringUser)
+    return this.xhttp.post(this.registerUrl, registeringUser)
         .map(AuthenticationService.extractData)
         .catch(AuthenticationService.handleError)
   }
@@ -50,10 +47,7 @@ export class AuthenticationService {
   confirm(id: string): Observable<boolean> {
     return this.xhttp.post(this.confirmUrl, { id: id })
                .map(XHttp.extract)
-               .catch(err => {
-                 console.error(err);
-                 return Observable.throw(err)
-               })
+               .catch(AuthenticationService.handleError)
   }
 
   logout() {
