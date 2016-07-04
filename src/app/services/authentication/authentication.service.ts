@@ -8,7 +8,7 @@ import { Injectable } from "@angular/core";
 import { URLSearchParams, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
-import { LoggedInUser } from "../../pages";
+import { LoggedInUser, RegisteringUser } from "../../pages";
 import { TokenResponse } from "./token-response.model";
 import { XHttp } from "../xhttp/xhhtp.service";
 
@@ -40,6 +40,12 @@ export class AuthenticationService {
                  return Observable.throw(err);
                })
   }
+  
+  register(registeringUser: RegisteringUser) {
+    return this.http.post(this.registerUrl, registeringUser)
+        .map(AuthenticationService.extractData)
+        .catch(AuthenticationService.handleError)
+  }
 
   confirm(id: string): Observable<boolean> {
     return this.xhttp.post(this.confirmUrl, { id: id })
@@ -50,8 +56,24 @@ export class AuthenticationService {
                })
   }
 
+  logout() {
+    sessionStorage.removeItem('token');
+  }
+
+  private static extractData(response: Response) {
+    let body = response.json();
+    return body || {}
+  }
+
   private storeToken(response: TokenResponse) {
     sessionStorage.setItem('token', response.token);
     return Observable.create(true)
+  }
+
+  private static handleError (error: any) {
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 }

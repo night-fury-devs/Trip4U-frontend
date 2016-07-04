@@ -5,10 +5,12 @@
  */
 
 import { Component, Type, OnInit } from "@angular/core";
-import { RouteConfig, ROUTER_DIRECTIVES } from "@angular/router-deprecated";
+import { RouteConfig, ROUTER_DIRECTIVES, Router } from "@angular/router-deprecated";
 import { LandingPageComponent, EmailConfirmPageComponent } from "./pages/";
 import { UpButtonComponent } from "./shared/";
 import { LoginFormComponent } from "./pages/login-form/login-page.component";
+import { RegistrationFormComponent } from "./pages/registration-form/registration-form.component";
+import { AuthenticationService } from "./services/authentication/authentication.service";
 
 @Component({
   selector: 'app',
@@ -17,12 +19,17 @@ import { LoginFormComponent } from "./pages/login-form/login-page.component";
   directives: [ROUTER_DIRECTIVES, <Type>UpButtonComponent]
 })
 @RouteConfig([
-  { path: '/', name: 'App', redirectTo: ['Home'] },
-  { path: '/home', name: 'Home', component: <Type>LandingPageComponent, useAsDefault: true },
-  { path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent },
+  {path: '/', name: 'App', redirectTo: ['Home']},
+  {path: '/home', name: 'Home', component: <Type>LandingPageComponent, useAsDefault: true},
+  {path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent},
+  {path: '/register', name: 'Registration', component: <Type>RegistrationFormComponent},
   { path: '/login', name: 'Login', component: <Type>LoginFormComponent }
 ])
 export class AppComponent implements OnInit {
+
+  constructor(private auth: AuthenticationService,
+              private router: Router) {}
+
   ngOnInit() {
     $(document).ready(() => {
       var up_button = $('#up-button');
@@ -42,5 +49,10 @@ export class AppComponent implements OnInit {
       });
 
     });
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['Home']);
   }
 }

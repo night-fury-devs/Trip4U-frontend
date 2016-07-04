@@ -7,16 +7,18 @@
           <div>
             <label for="userName">Login:</label>
             <input type="text" id="userName" name="userName"
-                   [(ngModel)]="model.userName" required #userName="ngModel"/>
-            <div [hidden]="userName.valid || userName.pristine">
+                   [(ngModel)]="model.userName" required #userName="ngModel"
+                   [class.error]="!password.valid && !password.pristine"/>
+            <div class="error-text" [hidden]="userName.valid || userName.pristine">
               Login is required
             </div>
           </div>
           <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"
-                   [(ngModel)]="model.password" required #password="ngModel"/>
-            <div [hidden]="password.valid || password.pristine">
+                   [(ngModel)]="model.password" required #password="ngModel"
+                   [class.error]="!password.valid && !password.pristine"/>
+            <div class="error-text" [hidden]="password.valid || password.pristine">
               Password is required
             </div>
           </div>

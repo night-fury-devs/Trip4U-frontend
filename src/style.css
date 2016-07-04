@@ -1,7 +1,3 @@
-.wrap {
-    padding-top: 64px;
-}
-
 nav ul a,
 nav .brand-logo {
     color: #444;
@@ -60,9 +56,45 @@ p {
 
 footer.page-footer {
     margin: 0;
+    width:100%;
+    position: absolute;
+    left:0;
+    bottom: 0;
+    height: 250px;
 }
 
 .block-center-align {
     margin-left: auto;
     margin-right: auto;
+}
+
+.footer-copyright {
+
+}
+
+
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#app-container {
+    min-height:100%;
+    position: relative;
+}
+
+#wrap {
+    padding-top: 64px;
+    padding-bottom: 250px;
+}
+
+.error {
+    color: #f44336;
+    border-bottom: 1px solid #f44336 !important;
+    box-shadow: 0 1px 0 0 #f44336 !important;
+}
+
+.error-text {
+    color: #f44336;
 }

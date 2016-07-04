@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="valign-wrapper">
+      <div class="col s12 m8 block-center-align">
+        <h3>Registration:</h3>
+        <form #registrationForm="ngForm" (ngSubmit)="registerUser()">
+          <div class="col s12">
+            <label for="userName">Login:</label>
+            <input type="text" id="userName" name="userName"
+                   [(ngModel)]="model.userName" #userName="ngModel" ngControl="userName"
+                   required minlength="3" maxlength="30"
+                   [class.error]="!userName.valid && !userName.pristine">
+            <div class="error-text" [hidden]="userName.valid || userName.pristine">
+              Login is required
+            </div>
+
+          </div>
+          <div class="col s12">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"
+                   [(ngModel)]="model.email" #email="ngModel"
+                   required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                   [class.error]="!email.valid && !email.pristine">
+            <div class="error-text" [hidden]="email.valid || email.pristine">
+              Email is required
+            </div>
+          </div>
+          <div class="col s12">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"
+                   [(ngModel)]="model.password" #password="ngModel"
+                   required pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()]*$"
+                   [class.error]="!password.valid && !password.pristine">
+            <div class="error-text" [hidden]="password.valid || password.pristine">
+              Password is required
+            </div>
+          </div>
+          <div class="col s12">
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword"
+                   [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"
+                   required pattern="(?=^.{8,}$)(?=.*\d)[0-9a-zA-Z!@#$%^&*()]*"
+                   [class.error]="!confirmPassword.valid && !confirmPassword.pristine">
+            <div class="error-text" [hidden]="confirmPassword.valid || confirmPassword.pristine">
+              Confirm your password
+            </div>
+
+          </div>
+          <div class="col s12 m6">
+            <label for="firstName">First name:</label>
+            <input type="text" id="firstName" name="firstName"
+                   [(ngModel)]="model.firstName"
+                   maxlength="30">
+          </div>
+          <div class="col s12 m6">
+            <label for="lastName">Last name:</label>
+            <input type="text" id="lastName" name="lastName"
+                   [(ngModel)]="model.lastName"
+                   maxlength="30">
+          </div>
+          <div class="col s12 m12">
+            <p class="error-text" [hidden]="!error">{{error}}</p>
+            <button class="waves-effect waves-light btn" type="submit" [disabled]="!registrationForm.form.valid">Register</button>
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
