@@ -19,6 +19,7 @@ export class AuthenticationService {
   private loginUrl = 'auth/login';
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
+  private tokenKey = 'token';
 
   constructor(private xhttp: XHttp) {
   }
@@ -40,7 +41,7 @@ export class AuthenticationService {
   
   register(registeringUser: RegisteringUser) {
     return this.xhttp.post(this.registerUrl, registeringUser)
-        .map(AuthenticationService.extractData)
+        .map(XHttp.extract)
         .catch(AuthenticationService.handleError)
   }
 
@@ -51,7 +52,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    sessionStorage.removeItem('token');
+    this.removeToken();
   }
 
   private static extractData(response: Response) {
@@ -60,8 +61,12 @@ export class AuthenticationService {
   }
 
   private storeToken(response: TokenResponse) {
-    sessionStorage.setItem('token', response.token);
+    sessionStorage.setItem(this.tokenKey, response.token);
     return Observable.create(true)
+  }
+
+  private removeToken() {
+    sessionStorage.removeItem(this.tokenKey);
   }
 
   private static handleError (error: any) {
