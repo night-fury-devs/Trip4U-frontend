@@ -6,7 +6,6 @@
 
 import { Injectable } from "@angular/core";
 import { Http, Response, URLSearchParams, Headers } from "@angular/http";
-import { Router } from "@angular/router-deprecated";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
 import { LoggedInUser, RegisteringUser } from "../../pages";
@@ -49,6 +48,10 @@ export class AuthenticationService {
   confirm(id: string): Observable<boolean> {
     return this.http.post(this.confirmUrl, { id: id })
                .map(AuthenticationService.extractData)
+  }
+
+  logout() {
+    sessionStorage.removeItem('token');
   }
 
   private static extractData(response: Response) {
