@@ -5,7 +5,7 @@
  */
 
 import { Component, Type, OnInit } from "@angular/core";
-import { RouteConfig, ROUTER_DIRECTIVES } from "@angular/router-deprecated";
+import { RouteConfig, ROUTER_DIRECTIVES, Router } from "@angular/router-deprecated";
 import { LandingPageComponent, EmailConfirmPageComponent } from "./pages/";
 import { UpButtonComponent } from "./shared/";
 import { LoginFormComponent } from "./pages/login-form/login-page.component";
@@ -26,9 +26,10 @@ import { AuthenticationService } from "./services/authentication/authentication.
   { path: '/login', name: 'Login', component: <Type>LoginFormComponent }
 ])
 export class AppComponent implements OnInit {
-  
-  constructor(private auth: AuthenticationService) {}
-  
+
+  constructor(private auth: AuthenticationService,
+              private router: Router) {}
+
   ngOnInit() {
     $(document).ready(() => {
       var up_button = $('#up-button');
@@ -49,9 +50,9 @@ export class AppComponent implements OnInit {
 
     });
   }
-  
+
   logout() {
     this.auth.logout();
-    //TODO: Naviagte to /home
+    this.router.navigate(['Home']);
   }
 }
