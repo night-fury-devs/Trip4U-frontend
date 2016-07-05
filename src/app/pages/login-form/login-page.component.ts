@@ -5,6 +5,7 @@
  */
 
 import { Component } from "@angular/core";
+import { Router } from "@angular/router-deprecated";
 import { LoggedInUser } from "./model/LoggedInUser";
 import { AuthenticationService } from "../../services/authentication/authentication.service";
 
@@ -18,13 +19,12 @@ export class LoginFormComponent {
   model = new LoggedInUser();
   private successful: Boolean = true;
   
-  constructor(private auth: AuthenticationService) {
-    
-  }
+  constructor(private auth: AuthenticationService,
+              private router: Router) {}
 
   performLogin() {
     this.auth.login(this.model)
-        .subscribe(res => console.log(res)/*TODO: make redirect to /home*/,
+        .subscribe(res => this.router.navigate(['Home']),
                    err => this.successful = false);
   }
 }
