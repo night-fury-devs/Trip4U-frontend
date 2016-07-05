@@ -11,6 +11,7 @@ import "rxjs/Rx";
 import { LoggedInUser, RegisteringUser } from "../../pages";
 import { TokenResponse } from "./token-response.model";
 import { XHttp } from "../xhttp/xhhtp.service";
+import { Helper } from "../helper.service";
 
 
 @Injectable()
@@ -36,19 +37,19 @@ export class AuthenticationService {
     return this.xhttp.post(this.loginUrl, params, headers)
                .map(XHttp.extract)
                .map(this.storeToken)
-               .catch(AuthenticationService.handleError)
+               .catch(Helper.handleError)
   }
   
   register(registeringUser: RegisteringUser) {
     return this.xhttp.post(this.registerUrl, registeringUser)
         .map(XHttp.extract)
-        .catch(AuthenticationService.handleError)
+        .catch(Helper.handleError)
   }
 
   confirm(id: string): Observable<boolean> {
     return this.xhttp.post(this.confirmUrl, { id: id })
                .map(XHttp.extract)
-               .catch(AuthenticationService.handleError)
+               .catch(Helper.handleError)
   }
 
   logout() {
@@ -67,12 +68,5 @@ export class AuthenticationService {
 
   private removeToken() {
     sessionStorage.removeItem(this.tokenKey);
-  }
-
-  private static handleError (error: any) {
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg);
-    return Observable.throw(errMsg);
   }
 }
