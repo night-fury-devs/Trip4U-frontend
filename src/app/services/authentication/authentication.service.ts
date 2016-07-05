@@ -20,7 +20,6 @@ export class AuthenticationService {
   private loginUrl = 'auth/login';
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
-  private tokenKey = 'token';
 
   constructor(private xhttp: XHttp) {
   }
@@ -62,11 +61,11 @@ export class AuthenticationService {
   }
 
   private storeToken(response: TokenResponse) {
-    sessionStorage.setItem(this.tokenKey, response.token);
+    sessionStorage.setItem('token', response.token);
     return Observable.create(true)
   }
 
   private removeToken() {
-    sessionStorage.removeItem(this.tokenKey);
+    sessionStorage.removeItem('token');
   }
 }
