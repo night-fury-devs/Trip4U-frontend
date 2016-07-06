@@ -11,6 +11,7 @@ import { UpButtonComponent } from "./shared/";
 import { LoginFormComponent } from "./pages/login-form/login-page.component";
 import { RegistrationFormComponent } from "./pages/registration-form/registration-form.component";
 import { AuthenticationService } from "./services/authentication/authentication.service";
+import { UserProfilePageComponent } from "./pages/user-profile-page/user-profile-page.component";
 
 @Component({
   selector: 'app',
@@ -19,11 +20,12 @@ import { AuthenticationService } from "./services/authentication/authentication.
   directives: [ROUTER_DIRECTIVES, <Type>UpButtonComponent]
 })
 @RouteConfig([
-  {path: '/', name: 'App', redirectTo: ['Home']},
-  {path: '/home', name: 'Home', component: <Type>LandingPageComponent, useAsDefault: true},
+  {path: '/', name: 'App', redirectTo: ['Main']},
+  {path: '/main', name: 'Main', component: <Type>LandingPageComponent, useAsDefault: true},
   {path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent},
   {path: '/register', name: 'Registration', component: <Type>RegistrationFormComponent},
-  { path: '/login', name: 'Login', component: <Type>LoginFormComponent }
+  { path: '/login', name: 'Login', component: <Type>LoginFormComponent },
+  { path: '/home', name: 'Home', component: <Type>UserProfilePageComponent }
 ])
 export class AppComponent implements OnInit {
 
