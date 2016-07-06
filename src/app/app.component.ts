@@ -34,27 +34,31 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(() => {
-      var up_button = $('#up-button');
-      //Check to see if the window is top if not then display button
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-          up_button.fadeIn(() => up_button.css("opacity", 1));
-        } else {
-          up_button.fadeOut(() => up_button.css("opacity", 0));
-        }
-      });
-
-      //Click event to scroll to top
-      up_button.click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 800);
-        return false;
-      });
-
+      var upButton = $('#up-button');
+      this.initializeUpButton(upButton);
+      this.initializeWindowScrollAnimation(upButton);
     });
   }
 
   logout() {
     this.auth.logout();
     this.router.navigate(['Home']);
+  }
+
+  private initializeUpButton(upButton: JQuery) {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        upButton.fadeIn(() => upButton.css('opacity', 1));
+      } else {
+        upButton.fadeOut(() => upButton.css('opacity', 0));
+      }
+    });
+  }
+
+  private initializeWindowScrollAnimation(upButton: JQuery) {
+    upButton.click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
   }
 }
