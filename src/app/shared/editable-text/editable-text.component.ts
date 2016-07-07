@@ -14,6 +14,7 @@ import { Component, Input, AfterViewInit, Output, EventEmitter } from "@angular/
 })
 export class EditableTextComponent implements AfterViewInit{
   @Input() text: string;
+  @Input() label: string;
   @Output() textChanged: EventEmitter<string>;
   
   constructor() {

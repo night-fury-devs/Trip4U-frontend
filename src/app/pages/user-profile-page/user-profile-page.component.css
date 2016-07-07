@@ -1,4 +1,9 @@
 .user-avatar {
     width: 10vw;
     height: 10vw;
+    border-radius: 50%;
+}
+
+.no-padding {
+    padding: 0;!important;
 }
