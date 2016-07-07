@@ -4,7 +4,7 @@
  * Time: 15:50
  */
 
-import { Component, Input, AfterViewInit } from "@angular/core";
+import { Component, Input, AfterViewInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
   moduleId: module.id,
@@ -14,6 +14,11 @@ import { Component, Input, AfterViewInit } from "@angular/core";
 })
 export class EditableTextComponent implements AfterViewInit{
   @Input() text: string;
+  @Output() textChanged: EventEmitter<string>;
+  
+  constructor() {
+    this.textChanged = new EventEmitter<string>();
+  }
 
   ngAfterViewInit() {
     this.initializeLayout();
@@ -24,7 +29,7 @@ export class EditableTextComponent implements AfterViewInit{
     let p = $('.editable__p');
     
     input.hide()
-         .focusout(this.finishEdit)
+         .focusout(e => this.finishEdit(e))
          .keyup(e => {
            if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
              this.finishEdit(e);
@@ -41,11 +46,15 @@ export class EditableTextComponent implements AfterViewInit{
   
   private finishEdit(event) {
     let input = $(event.target);
-    let p = input && input.prev();
-
-    p.text(input.val());
     input.hide();
-    p.show();
+    if (event.type !== 'focusout') return;
     
+    let p = input && input.prev();
+    let value = input.val();
+    
+    this.textChanged.emit(value);
+
+    p.text(value);
+    p.show();
   }
 }

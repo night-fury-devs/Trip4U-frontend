@@ -1,11 +1,11 @@
 <content-panel>
   <div class="row">
     <div class="col s4">
-      <img class="user-avatar" src="{{imgSource}}">
+      <img class="user-avatar" [src]="imgSource">
     </div>
 
     <div class="col s8">
-      <t4u-editable-text [(text)]="imgSource"></t4u-editable-text>
+      <t4u-editable-text [text]="imgSource" (textChanged)="imgSource=$event"></t4u-editable-text>
     </div>
   </div>
 
