@@ -4,3 +4,10 @@
     min-height: 1em;
     padding-left: 0.75em;
 }
+
+.editable__p:hover {
+    border: thin solid #536dfe;
+    border-radius: 5px;
+    background: #e8eaf6;
+    cursor: pointer;
+}
