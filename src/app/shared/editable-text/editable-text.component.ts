@@ -4,7 +4,7 @@
  * Time: 15:50
  */
 
-import { Component, Input, AfterViewInit, Output, EventEmitter } from "@angular/core";
+import { Component, Input, AfterViewInit, Output, EventEmitter, ElementRef } from "@angular/core";
 
 @Component({
   moduleId: module.id,
@@ -18,7 +18,10 @@ export class EditableTextComponent implements AfterViewInit {
   @Input() readonly: boolean = false;
   @Output() textChanged: EventEmitter<string>;
   
-  constructor() {
+  private node: HTMLElement;
+  
+  constructor(private element: ElementRef) {
+    this.node = this.element.nativeElement;
     this.textChanged = new EventEmitter<string>();
   }
 
@@ -27,8 +30,8 @@ export class EditableTextComponent implements AfterViewInit {
   }
 
   private initializeLayout() {
-    let input = $('.editable__input');
-    let p = $('.editable__p');
+    let input = $('.editable__input', this.node);
+    let p = $('.editable__p', this.node);
     let inputGroup = input.parent();
     
     inputGroup.hide();
@@ -55,12 +58,11 @@ export class EditableTextComponent implements AfterViewInit {
     inputGroup.hide();
     if (event.type !== 'focusout') return;
     
-    let p = $('.editable__p');
+    let p = $('.editable__p', this.node);
     let value = input.val();
     
     this.textChanged.emit(value);
 
-    // p.text(value);
     p.show();
   }
 }
