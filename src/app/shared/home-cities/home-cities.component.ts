@@ -4,7 +4,7 @@
  * Time: 16:57
  */
 
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   moduleId: module.id,
@@ -12,6 +12,13 @@ import { Component } from "@angular/core";
   templateUrl: 'home-cities.component.html',
   styleUrls: ['home-cities.component.css']
 })
-export class HomeCitiesComponent {
-  
+export class HomeCitiesComponent implements OnInit {
+  ngOnInit() {
+    $(document).ready(() => {
+      $('.carousel').carousel({
+        dist: 0,
+        shift: 5
+      });
+    })
+  }
 }
