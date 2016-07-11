@@ -4,20 +4,20 @@
  * Time: 10:50
  */
 
-import { Component } from "@angular/core";
+import { Component, Type } from "@angular/core";
+import {ModalComponent} from "../../shared/modal-component/modal.component";
 
 @Component({
   moduleId: module.id,
   templateUrl: 'modal-test.component.html',
-  selector: 'modal-test'
+  selector: 'modal-test',
+  directives: [<Type>ModalComponent]
 })
 export class ModalTestComponent {
   
   value1=0;
   value2=2;
-  
-  loadModal(component: string){
-    alert(component);
-  }
+  id1='id1';
+  id2='id2';
   
 }

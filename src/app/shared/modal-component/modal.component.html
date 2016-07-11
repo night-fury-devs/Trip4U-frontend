@@ -1,6 +1,8 @@
-<div [id]="id" class="modal">
+<button class="btn modal-trigger" (click)="loadModal()">{{buttonCaption}}</button>
+
+<div [id]="modalId" class="modal">
   <div class="modal-content">
-    {{id}}
+    {{modalId}}
     <h4>Modal Header</h4>
     <p>A bunch of text</p>
   </div>

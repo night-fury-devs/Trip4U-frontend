@@ -4,7 +4,7 @@
  * Time: 10:48
  */
 
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   moduleId: module.id,
@@ -13,5 +13,22 @@ import { Component } from "@angular/core";
 })
 export class ModalComponent {
 
+  @Input() modalId: string;
+  @Input() buttonCaption: string;
+
+  loadModal(){
+    alert(this.modalId);
+    $('#'+this.modalId).openModal();
+  }
+
+  closeOk() {
+    alert('OK pressed');
+    $('#'+this.modalId).closeModal();
+  }
+
+  closeCancel() {
+    alert('Cancel pressed');
+    $('#'+this.modalId).closeModal();
+  }
 
 }
