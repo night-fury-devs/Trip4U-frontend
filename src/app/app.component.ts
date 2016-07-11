@@ -6,7 +6,7 @@
 
 import { Component, Type, OnInit } from "@angular/core";
 import { RouteConfig, ROUTER_DIRECTIVES, Router } from "@angular/router-deprecated";
-import { LandingPageComponent, EmailConfirmPageComponent } from "./pages/";
+import { LandingPageComponent, EmailConfirmPageComponent, ModalTestComponent } from "./pages/";
 import { UpButtonComponent } from "./shared/";
 import { LoginFormComponent } from "./pages/login-form/login-page.component";
 import { RegistrationFormComponent } from "./pages/registration-form/registration-form.component";
@@ -23,7 +23,8 @@ import { AuthenticationService } from "./services/authentication/authentication.
   {path: '/home', name: 'Home', component: <Type>LandingPageComponent, useAsDefault: true},
   {path: '/confirm', name: 'EmailConfirmPage', component: <Type>EmailConfirmPageComponent},
   {path: '/register', name: 'Registration', component: <Type>RegistrationFormComponent},
-  { path: '/login', name: 'Login', component: <Type>LoginFormComponent }
+  {path: '/login', name: 'Login', component: <Type>LoginFormComponent},
+  {path: '/modal-test', name: 'ModalTest', component: <Type>ModalTestComponent}
 ])
 export class AppComponent implements OnInit {
 
