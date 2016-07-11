@@ -11,15 +11,9 @@ import { Component, Input } from "@angular/core";
   templateUrl: 'modal.component.html',
   selector: 'modal'
 })
-export class ModalComponent {
+export class ModalComponent{
 
   @Input() modalId: string;
-  @Input() buttonCaption: string;
-
-  loadModal(){
-    alert(this.modalId);
-    $('#'+this.modalId).openModal();
-  }
 
   closeOk() {
     alert('OK pressed');

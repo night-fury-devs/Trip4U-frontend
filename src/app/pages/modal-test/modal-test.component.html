@@ -1,10 +1,16 @@
 <div>
   Value1: {{value1}}
-  <modal [modalId]="id1" [buttonCaption]="value1"></modal>
+  <modal [modalId]="id1">
+
+  </modal>
+  <button (click)="loadModal(id1)" class="btn modal-trigger">Change value 1</button>
 </div>
 
 <div>
   Value2: {{value2}}
-  <modal [modalId]="id2" [buttonCaption]="value2"></modal>
+  <modal [modalId]="id2">
+
+  </modal>
+  <button (click)="loadModal(id2)" class="btn modal-trigger">Change value 2</button>
 </div>
 
