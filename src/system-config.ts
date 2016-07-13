@@ -10,7 +10,8 @@ const map: any = {
   '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
   '@angular/forms': 'vendor/@angular/forms',
   'jquery': 'vendor/jquery',
-  'materialize-css': 'vendor/materialize-css'
+  'materialize-css': 'vendor/materialize-css',
+  'slick-carousel': 'vendor/slick-carousel'
 };
 
 /** User packages configuration. */
@@ -19,7 +20,8 @@ const packages: any = {
   '@angular/router-deprecated': { main: 'index' },
   '@angular/forms': { main: 'index' },
   'jquery': { main: 'dist/jquery.min.js', format: 'cjs', defaultExtension: 'js' },
-  'materialize-css': { main: 'dist/js/materialize.min.js', format: 'global', defaultExtension: 'js' }
+  'materialize-css': { main: 'dist/js/materialize.min.js', format: 'cjs', defaultExtension: 'js' },
+  'slick-carousel': { main: 'slick/slick.min.js', format: 'global', defaultExtension: 'js'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,11 @@
+.t4u-carousel__arrow {
+    height: 10em;
+    width: 3em;
+    color: black;
+    position: absolute;
+    top: 50%;
+}
+
+.slick-next:before, .slick-prev:before {
+
+}
