@@ -68,4 +68,8 @@ export class AuthenticationService {
   private removeToken() {
     sessionStorage.removeItem('token');
   }
+
+  public isAuthenticated() {
+    return sessionStorage.getItem('token');
+  }
 }
