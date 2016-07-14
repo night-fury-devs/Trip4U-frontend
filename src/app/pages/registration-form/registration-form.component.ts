@@ -5,16 +5,17 @@
  */
 
 import { Component } from '@angular/core';
-import { NgForm }    from '@angular/common';
 import { Router } from '@angular/router-deprecated';
 
 import { RegisteringUser } from "./model/registering-user";
 import { AuthenticationService } from "../../services/authentication/authentication.service";
+import { PasswordStrengthDirective } from "./password-strength.directive";
 
 @Component({
   moduleId: module.id,
   templateUrl: 'registration-form.component.html',
-  selector: 'registration-form'
+  selector: 'registration-form',
+  directives: [PasswordStrengthDirective]
 })
 export class RegistrationFormComponent {
 
