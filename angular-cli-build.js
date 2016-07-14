@@ -17,7 +17,8 @@ module.exports = function (defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'jquery/dist/**/*.+(min.js|min.map)',
-      'materialize-css/dist/**/*'
+      'materialize-css/dist/**/*',
+        'ng2-cookies/**'
     ]
   });
 };

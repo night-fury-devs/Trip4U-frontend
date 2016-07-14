@@ -10,7 +10,8 @@ const map: any = {
   '@angular/router-deprecated': 'vendor/@angular/router-deprecated',
   '@angular/forms': 'vendor/@angular/forms',
   'jquery': 'vendor/jquery',
-  'materialize-css': 'vendor/materialize-css'
+  'materialize-css': 'vendor/materialize-css',
+  'ng2-cookies': 'vendor/ng2-cookies'
 };
 
 /** User packages configuration. */
@@ -19,7 +20,8 @@ const packages: any = {
   '@angular/router-deprecated': { main: 'index' },
   '@angular/forms': { main: 'index' },
   'jquery': { main: 'dist/jquery.min.js', format: 'cjs', defaultExtension: 'js' },
-  'materialize-css': { main: 'dist/js/materialize.min.js', format: 'global', defaultExtension: 'js' }
+  'materialize-css': { main: 'dist/js/materialize.min.js', format: 'global', defaultExtension: 'js' },
+  'ng2-cookies': {main: 'ng2-cookies.js'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

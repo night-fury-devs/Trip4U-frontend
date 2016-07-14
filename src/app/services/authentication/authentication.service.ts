@@ -4,6 +4,7 @@
  * Time: 21:56
  */
 
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { Injectable } from "@angular/core";
 import { URLSearchParams, Headers, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
@@ -17,16 +18,23 @@ import { Helper } from "../helper.service";
 @Injectable()
 export class AuthenticationService {
 
+  private TOKEN_NAME = 'trip4u_token';
+  private TOKEN_EXPIRATION_DAYS = 1;
+
   private loginUrl = 'auth/login';
   private registerUrl = 'auth/register';
   private confirmUrl = 'auth/confirm';
 
+  private rememberMe = false;
+  
   constructor(private xhttp: XHttp) {
   }
 
   login(user: LoggedInUser): Observable<any> {
     let params = new URLSearchParams();
     let headers = new Headers();
+
+    this.rememberMe = user.rememberMe;
 
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -61,15 +69,20 @@ export class AuthenticationService {
   }
 
   private storeToken(response: TokenResponse) {
-    sessionStorage.setItem('token', response.token);
+    if(this.rememberMe){
+      Cookie.set(this.TOKEN_NAME, response.token, this.TOKEN_EXPIRATION_DAYS);
+    } else {
+      sessionStorage.setItem(this.TOKEN_NAME, response.token);
+    }
     return Observable.create(true)
   }
 
   private removeToken() {
-    sessionStorage.removeItem('token');
+    sessionStorage.removeItem(this.TOKEN_NAME);
+    Cookie.delete(this.TOKEN_NAME);
   }
 
   public isAuthenticated() {
-    return sessionStorage.getItem('token');
+    return sessionStorage.getItem(this.TOKEN_NAME) || Cookie.get(this.TOKEN_NAME);
   }
 }
