@@ -10,7 +10,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { disableDeprecatedForms, provideForms } from "@angular/forms";
 import { HTTP_PROVIDERS, ConnectionBackend, XHRBackend } from "@angular/http";
 import { AppComponent } from "./app/";
-import { XHttp, AuthenticationService } from "./app/services/";
+import { XHttp, AuthenticationService } from "./app/services/index";
 
 bootstrap(<any>AppComponent, [
   ROUTER_PROVIDERS,
