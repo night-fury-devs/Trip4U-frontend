@@ -9,8 +9,8 @@ import { ROUTER_PROVIDERS } from "@angular/router-deprecated";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { disableDeprecatedForms, provideForms } from "@angular/forms";
 import { HTTP_PROVIDERS, ConnectionBackend, XHRBackend } from "@angular/http";
-import { AppComponent, AuthenticationService } from "./app/";
-import { XHttp } from "./app/services/xhttp/xhhtp.service";
+import { AppComponent } from "./app/";
+import { XHttp, AuthenticationService } from "./app/services/";
 
 bootstrap(<any>AppComponent, [
   ROUTER_PROVIDERS,
