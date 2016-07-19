@@ -4,7 +4,7 @@
  * Time: 17:12
  */
 
-import { Directive, ElementRef, Input, HostListener } from '@angular/core';
+import {Directive, ElementRef, Input, HostListener, Output, EventEmitter} from '@angular/core';
 import {PasswordCheckerService} from "./password-checker.service";
 
 @Directive({
@@ -22,23 +22,29 @@ export class PasswordStrengthDirective {
   }
 
   @Input('passwordStrength') password;
+  @Output() passwordStrengthChange = new EventEmitter();
 
   @HostListener('keyup') onPasswordChanged() {
     var strengthRate = this.passwordCheckerService.measurePasswordStrength(this.password);
     if(!this.el.classList.contains('error')) {
       if (strengthRate < 4) {
-        this.el.classList.add('weak-password');
-        this.el.classList.remove('normal-password', 'strong-password');
-        console.log('low');
+        this.passwordStrengthChange.emit({
+          message: 'Weak password',
+          style: 'weak-password'
+        });
       } else if (strengthRate < 10) {
-        this.el.classList.add('normal-password');
-        this.el.classList.remove('weak-password', 'strong-password');
-        console.log('medium');
+        this.passwordStrengthChange.emit({
+          message: 'Normal password',
+          style: 'normal-password'
+        });
       } else {
-        this.el.classList.add('strong-password');
-        this.el.classList.remove('normal-password', 'weak-password');
-        console.log('high');
+        this.passwordStrengthChange.emit({
+          message: 'Strong password',
+          style: 'strong-password'
+        });
       }
+    } else {
+      this.el.classList.remove('strong-password', 'normal-password', 'weak-password');
     }
   }
 }

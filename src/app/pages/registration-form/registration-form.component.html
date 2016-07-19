@@ -27,13 +27,16 @@
           </div>
           <div class="col s12">
             <label for="password">Password:</label>
-            <input [passwordStrength]="model.password" type="password" id="password" name="password"
+            <input [passwordStrength]="model.password"
+                   (passwordStrengthChange) = "onPasswordChange($event)"
+                   type="password" id="password" name="password"
                    [(ngModel)]="model.password" #password="ngModel"
                    required pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()]*$"
                    [class.error]="!password.valid && !password.pristine">
             <div class="error-text" [hidden]="password.valid || password.pristine">
               Password is required
             </div>
+            <div id="password-strength-message" [hidden]="!password.valid || password.pristine">{{passwordStrengthMessage}}</div>
           </div>
           <div class="col s12">
             <label for="confirmPassword">Confirm password:</label>
