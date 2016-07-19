@@ -9,7 +9,7 @@ import { Router } from '@angular/router-deprecated';
 
 import { RegisteringUser } from "./model/registering-user";
 import { AuthenticationService } from "../../services/authentication/authentication.service";
-import { PasswordStrengthDirective } from "./password-strength.directive";
+import { PasswordStrengthDirective } from "./password/password-strength.directive";
 
 @Component({
   moduleId: module.id,
