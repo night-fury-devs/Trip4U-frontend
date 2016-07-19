@@ -31,7 +31,7 @@
                    (passwordStrengthChange) = "onPasswordChange($event)"
                    type="password" id="password" name="password"
                    [(ngModel)]="model.password" #password="ngModel"
-                   required pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()~/-+=}{]*$"
+                   required pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()~/\-+=}\{]*$"
                    [class.error]="!password.valid && !password.pristine">
             <div class="error-text" [hidden]="password.valid || password.pristine">
               Password is required
@@ -42,7 +42,7 @@
             <label for="confirmPassword">Confirm password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword"
                    [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"
-                   required pattern="(?=^.{8,}$)(?=.*\d)[0-9a-zA-Z!@#$%^&*()~/-+=}{]*"
+                   required pattern="(?=^.{8,}$)(?=.*\d)[0-9a-zA-Z!@#$%^&*()~/\-+=}\{]*"
                    [class.error]="!confirmPassword.valid && !confirmPassword.pristine">
             <div class="error-text" [hidden]="confirmPassword.valid || confirmPassword.pristine">
               Confirm your password
