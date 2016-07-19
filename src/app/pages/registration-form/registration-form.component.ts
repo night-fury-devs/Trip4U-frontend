@@ -15,7 +15,8 @@ import { PasswordStrengthDirective } from "./password/password-strength.directiv
   moduleId: module.id,
   templateUrl: 'registration-form.component.html',
   selector: 'registration-form',
-  directives: [PasswordStrengthDirective]
+  directives: [PasswordStrengthDirective],
+  styleUrls: ['registration-form.component.css']
 })
 export class RegistrationFormComponent {
 
