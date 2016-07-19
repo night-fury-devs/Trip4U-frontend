@@ -25,18 +25,20 @@ export class PasswordStrengthDirective {
 
   @HostListener('keyup') onPasswordChanged() {
     var strengthRate = this.passwordCheckerService.measurePasswordStrength(this.password);
-    if(strengthRate < 4) {
-      this.el.classList.add('weak-password');
-      this.el.classList.remove('normal-password', 'strong-password');
-      console.log('low');
-    } else if (strengthRate < 10) {
-      this.el.classList.add('normal-password');
-      this.el.classList.remove('weak-password', 'strong-password');
-      console.log('medium');
-    } else {
-      this.el.classList.add('strong-password');
-      this.el.classList.remove('normal-password', 'weak-password');
-      console.log('high');
+    if(!this.el.classList.contains('error')) {
+      if (strengthRate < 4) {
+        this.el.classList.add('weak-password');
+        this.el.classList.remove('normal-password', 'strong-password');
+        console.log('low');
+      } else if (strengthRate < 10) {
+        this.el.classList.add('normal-password');
+        this.el.classList.remove('weak-password', 'strong-password');
+        console.log('medium');
+      } else {
+        this.el.classList.add('strong-password');
+        this.el.classList.remove('normal-password', 'weak-password');
+        console.log('high');
+      }
     }
   }
 }
