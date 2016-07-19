@@ -1,0 +1,34 @@
+$weak-password-color: #ff7f50;
+$normal-password-color: #e5e55b;
+$strong-password-color: #27c6ab;
+
+.weak-password {
+  color: $weak-password-color;
+  border-bottom: 1px solid $weak-password-color !important;
+  box-shadow: 0 1px 0 0 $weak-password-color !important;
+}
+
+.weak-password-message {
+  color: $weak-password-color;
+}
+
+.normal-password {
+  color: $normal-password-color;
+  border-bottom: 1px solid $normal-password-color !important;
+  box-shadow: 0 1px 0 0 $normal-password-color !important;
+
+}
+
+.normal-password-message {
+  color: $normal-password-color;
+}
+
+.strong-password {
+  color: $strong-password-color;
+  border-bottom: 1px solid $strong-password-color !important;
+  box-shadow: 0 1px 0 0 $strong-password-color !important;
+}
+
+.strong-password-message {
+  color: $strong-password-color;
+}
