@@ -10,7 +10,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { disableDeprecatedForms, provideForms } from "@angular/forms";
 import { HTTP_PROVIDERS, ConnectionBackend, XHRBackend } from "@angular/http";
 import { AppComponent } from "./app/";
-import { XHttp, AuthenticationService } from "./app/services/index";
+import { XHttp, AuthenticationService, ElasticsearchService } from "./app/services/index";
 import { PasswordCheckerService } from "./app/pages/";
 
 bootstrap(<any>AppComponent, [
@@ -22,5 +22,6 @@ bootstrap(<any>AppComponent, [
   { provide: ConnectionBackend, useClass: XHRBackend },
   XHttp,
   AuthenticationService,
-  PasswordCheckerService
+  PasswordCheckerService,
+  ElasticsearchService
 ]);

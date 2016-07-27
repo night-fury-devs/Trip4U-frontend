@@ -4,7 +4,8 @@
     "jquery": "registry:dt/jquery#1.10.0+20160417213236",
     "materialize-css": "registry:dt/materialize-css#0.97.5+20160317120654",
     "rx": "registry:dt/rx#0.0.0+20160317120654",
-    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654"
+    "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654",
+    "elasticsearch": "registry:dt/elasticsearch#0.0.0+20160707221728"
   },
   "globalDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
