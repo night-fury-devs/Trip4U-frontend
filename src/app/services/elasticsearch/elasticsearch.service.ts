@@ -5,12 +5,13 @@
  */
 
 import * as elasticsearch from 'elasticsearch';
+import { environment as env } from "../../environment";
 
 export class ElasticsearchService {
 
   getClient() {
     return new elasticsearch.Client({
-      host: 'localhost:9200'
+      host: env.elastic_host
     });
   }
   
