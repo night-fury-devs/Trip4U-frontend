@@ -9,4 +9,3 @@ export * from './registration-form/registration-form.component';
 export * from './registration-form/model/registering-user';
 export * from './modal-test/modal-test.component';
 export * from './modal-test/comp1/comp1.component';
-export * from './modal-test/comp2/comp2.component';

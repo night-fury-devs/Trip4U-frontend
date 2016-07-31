@@ -5,7 +5,6 @@
  */
 
 import { Component, Type } from "@angular/core";
-import {ModalComponent} from "../../shared/modal-component/modal.component";
 import {ModalService} from "../../services/modal/modal.service";
 import {Comp1Component} from "./comp1/comp1.component";
 

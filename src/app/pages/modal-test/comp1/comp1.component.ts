@@ -5,6 +5,7 @@
  */
 
 import { Component, Input } from "@angular/core";
+import {ModalService} from "../../../services/modal/modal.service";
 
 @Component({
   moduleId: module.id,
@@ -14,6 +15,20 @@ import { Component, Input } from "@angular/core";
 export class Comp1Component {
 
   @Input() value1: number;
-  
+  @Input() modalId: string;
+
+  constructor( private modalService: ModalService){
+    
+  }
+
+  closeOk() {
+    alert('OK pressed');
+    this.modalService.closeModal(this.modalId);
+  }
+
+  closeCancel() {
+    alert('Cancel pressed');
+    this.modalService.closeModal(this.modalId);
+  }
 
 }
