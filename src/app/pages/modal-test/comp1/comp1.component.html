@@ -1,5 +1,12 @@
-Value1: {{value1}}
-<input type="text" id="value1" name="value1" [(ngModel)]="value1">
-
-
+<div [id]="modalId" class="modal">
+    <div class="modal-content">
+        {{modalId}}
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" (click)="closeOk()">OK</button>
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" (click)="closeCancel()">Cancel</button>
+    </div>
+</div>
 

@@ -11,6 +11,7 @@ import { disableDeprecatedForms, provideForms } from "@angular/forms";
 import { HTTP_PROVIDERS, ConnectionBackend, XHRBackend } from "@angular/http";
 import { AppComponent, AuthenticationService } from "./app/";
 import { XHttp } from "./app/services/xhttp/xhhtp.service";
+import { ModalService } from "./app/services/modal/modal.service";
 
 bootstrap(<any>AppComponent, [
   ROUTER_PROVIDERS,
@@ -20,5 +21,6 @@ bootstrap(<any>AppComponent, [
   HTTP_PROVIDERS,
   { provide: ConnectionBackend, useClass: XHRBackend },
   XHttp,
-  AuthenticationService
+  AuthenticationService,
+  ModalService
 ]);
