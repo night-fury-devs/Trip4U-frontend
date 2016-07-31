@@ -10,7 +10,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { disableDeprecatedForms, provideForms } from "@angular/forms";
 import { HTTP_PROVIDERS, ConnectionBackend, XHRBackend } from "@angular/http";
 import { AppComponent } from "./app/";
-import { XHttp, AuthenticationService, ModalService } from "./app/services/index";
+import { XHttp, AuthenticationService, ModalService, ElasticsearchService } from "./app/services/index";
 import { PasswordCheckerService } from "./app/pages/";
 
 bootstrap(<any>AppComponent, [
@@ -23,5 +23,6 @@ bootstrap(<any>AppComponent, [
   XHttp,
   AuthenticationService,
   PasswordCheckerService,
+  ElasticsearchService,
   ModalService
 ]);

@@ -11,7 +11,8 @@ const map: any = {
   '@angular/forms': 'vendor/@angular/forms',
   'jquery': 'vendor/jquery',
   'materialize-css': 'vendor/materialize-css',
-  'ng2-cookies': 'vendor/ng2-cookies'
+  'ng2-cookies': 'vendor/ng2-cookies',
+  'elasticsearch': 'vendor/elasticsearch-browser/elasticsearch.js'
 };
 
 /** User packages configuration. */
@@ -22,6 +23,13 @@ const packages: any = {
   'jquery': { main: 'dist/jquery.min.js', format: 'cjs', defaultExtension: 'js' },
   'materialize-css': { main: 'dist/js/materialize.min.js', format: 'global', defaultExtension: 'js' },
   'ng2-cookies': {main: 'ng2-cookies.js'}
+};
+
+const meta: any = {
+  'elasticsearch': {
+    format: 'global',
+    exports: 'elasticsearch'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,4 +75,4 @@ System.config({
 });
 
 // Apply the user's configuration.
-System.config({ map, packages });
+System.config({ map, packages, meta });
