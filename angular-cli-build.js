@@ -18,7 +18,7 @@ module.exports = function (defaults) {
       '@angular/**/*.+(js|js.map)',
       'jquery/dist/**/*.+(min.js|min.map)',
       'materialize-css/dist/**/*',
-        'ng2-cookies/**'
+      'ng2-cookies/**'
     ]
   });
 };
