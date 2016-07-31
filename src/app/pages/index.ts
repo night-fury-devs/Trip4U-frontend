@@ -9,3 +9,5 @@ export * from './registration-form/registration-form.component';
 export * from './registration-form/model/registering-user';
 export * from './registration-form/password/password-strength.directive';
 export * from './registration-form/password/password-checker.service';
+export * from './modal-test/modal-test.component';
+export * from './modal-test/comp1/comp1.component';

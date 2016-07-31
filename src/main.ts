@@ -12,6 +12,8 @@ import { HTTP_PROVIDERS, ConnectionBackend, XHRBackend } from "@angular/http";
 import { AppComponent } from "./app/";
 import { XHttp, AuthenticationService } from "./app/services/index";
 import { PasswordCheckerService } from "./app/pages/";
+import { AppComponent } from "./app/";
+import { ModalService } from "./app/services/modal/modal.service";
 
 bootstrap(<any>AppComponent, [
   ROUTER_PROVIDERS,
@@ -22,5 +24,6 @@ bootstrap(<any>AppComponent, [
   { provide: ConnectionBackend, useClass: XHRBackend },
   XHttp,
   AuthenticationService,
-  PasswordCheckerService
+  PasswordCheckerService,
+  ModalService
 ]);
